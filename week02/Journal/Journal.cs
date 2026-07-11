@@ -36,6 +36,7 @@ public class Journal
 
     public void SaveToFile(string filename)
     {
+        filename += ".txt";
         using (StreamWriter output = new StreamWriter(filename))
         {
             foreach (Entry entry in _entries)
@@ -47,6 +48,9 @@ public class Journal
 
     public void LoadFromFile(string filename)
     {
+        if (!filename.EndsWith(".txt"))
+            filename += ".txt";
+
         if (!File.Exists(filename))
         {
             Console.WriteLine("File not found.");
