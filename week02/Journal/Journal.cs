@@ -61,7 +61,7 @@ public class Journal
 
         foreach (string line in File.ReadAllLines(filename))
         {
-            string[] parts = line.Split(' | ');
+            string[] parts = line.Split(" | ");
 
             if (parts.Length == 3)
                 _entries.Add(new Entry(parts[0], parts[1], parts[2]));
