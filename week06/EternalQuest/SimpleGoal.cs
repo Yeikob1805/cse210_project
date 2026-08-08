@@ -8,10 +8,18 @@ public class SimpleGoal : Goal
         _isComplete = false;
     }
 
+    public SimpleGoal(string name, string description, int points, bool isComplete)
+        : base(name, description, points)
+    {
+        _isComplete = isComplete;
+    }
+
     public override int RecordEvent()
     {
         if (_isComplete)
+        {
             return 0;
+        }
 
         _isComplete = true;
         return GetPoints();
@@ -24,7 +32,12 @@ public class SimpleGoal : Goal
 
     public override string GetStatus()
     {
-        return _isComplete ? "[X]" : "[ ]";
+        if (_isComplete)
+        {
+            return "[X]";
+        }
+
+        return "[ ]";
     }
 
     public override string GetStringRepresentation()
