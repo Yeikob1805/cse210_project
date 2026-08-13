@@ -1,9 +1,13 @@
 using System;
+using System.Collections.Generic;
 
-class Program
+List<Activity> activities = new List<Activity>();
+
+activities.Add(new Running("12 Aug 2026", 30, 4.8));
+activities.Add(new Cycling("12 Aug 2026", 30, 20));
+activities.Add(new Swimming("12 Aug 2026", 30, 30));
+
+foreach (Activity activity in activities)
 {
-    static void Main(string[] args)
-    {
-        Console.WriteLine("Hello World! This is the ExerciseTracking Project.");
-    }
+    Console.WriteLine(activity.GetSummary());
 }
